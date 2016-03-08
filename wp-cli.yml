@@ -1,0 +1,16 @@
+path: wp-core
+url: http://owasp-sevilla.org
+user: admin
+color: false
+disabled_commands:
+  - db drop
+  - plugin install
+require:
+  - path-to/command.php
+
+core config:
+  dbuser: root
+  dbpass: owasp
+  extra-php: |
+    define( 'WP_DEBUG', true );
+    define( 'WP_POST_REVISIONS', 50 );
