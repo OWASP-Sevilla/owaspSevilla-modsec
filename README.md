@@ -1,14 +1,20 @@
-# owaspSevilla-modsec
-Dockerfile para el taller de Modsecurity de Owasp-Sevilla
+# Dockerfile para el taller de Modsecurity de Owasp-Sevilla
 
-Ejecuta los siguientes comandos
+## Ejecuta los siguientes comandos
+```bash
+git clone https://github.com/melozo/owaspSevilla-modsec.git
+```
+```bash
+cd owaspSevilla-modsec/
+```
+```bash
+docker build . (el "." no es un error, debemos estar en el directorio en donde tengamos el archivo Dockerfile)
+```
+```bash
+docker run -itd xxxxxx
+```
 
-<code>git clone https://github.com/melozo/owaspSevilla-modsec.git</code>
-<code>cd owaspSevilla-modsec/</code>
-<code>docker build .</code>
-<code>docker run -itd xxxxxx</code>
-
-#ToDo
+##ToDo
 wp-cli instalar wordpress
 wp-cli instalar plugin vulnerable
 mysql crear base de datos
