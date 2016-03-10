@@ -35,29 +35,11 @@ mv wp-cli.phar /usr/local/bin/wp
 
 RUN rm -f /var/www/html/*
 
-#RUN wp --path=/var/www/html core download --allow-root && \
-#wp --path=/var/www/html core config --dbname=wpowasp --dbuser=root --dbpass=owasp --allow-root && \
-#wp --path=/var/www/html core install --url=www.owasp-sevilla.org \
-#--admin_name=owasp --admin_email=owasp@owasp.jarl \
-#--admin_password=owasp --allow-root && \
-#wp plugin install clikstats --activate --allow-root
+# aniadimos scripts de tutum/lamp/wordpress
+# https://github.com/tutumcloud/wordpress/blob/master/Dockerfile
 
-RUN mysql -uroot -e "create database wpowasp"
-# PoC sobre clikstats wp-content/plugins/clikstats/ck.php?Ck_id=514&Ck_lnk=http://owasp.org
-# mas informacion en https://www.intelligentexploit.com/view-details.html?id=23276
+ADD create_mysql_admin_user.sh /create_mysql_admin_user.sh
+ADD create_db.sh /create_db.sh
+RUN chmod +x /*.sh
 
-#RUN chown -R www-data:www-data /var/www/html/
-
-# descargamos reglas de owasp para modsecurity https://github.com/SpiderLabs/owasp-modsecurity-crs
-# OWASP ModSecurity Core Rule Set (CRS) Project (Official Repository)
-# ADD https://github.com/SpiderLabs/owasp-modsecurity-crs /tmp/
-
-# activar modulos
-
-#RUN a2enmod env ssl rewrite
-
-# exponemos 80
 EXPOSE 80
-
-#Ejecucion
-#CMD /bin/bash -c "service apache2 restart"

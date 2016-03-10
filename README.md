@@ -10,6 +10,4 @@
 
 ## ToDo
 
-- wp-cli instalar wordpress
 - wp-cli instalar plugin vulnerable
-- mysql crear base de datos
